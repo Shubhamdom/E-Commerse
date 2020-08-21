@@ -1,5 +1,6 @@
 from .base import *
-DEBUG = False
+from decouple import config
+DEBUG = config('DEBUG', cast=bool)
 ALLOWED_HOSTS = ['ip-address','www.your-website.com']
 
 
@@ -21,10 +22,10 @@ AUTH_PASSWORD_VALIDATORS = [
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME':'e-commerse',
-        'USER':'root',
-        'PASSWORD':'Momdad@143',
-        'HOST':'127.0.0.1',
+        'NAME':config('DB_NAME'),
+        'USER':config('BD_USER'),
+        'PASSWORD':config('DB_PASSWORD'),
+        'HOST':config('DB_HOST'),
         'PORT':'3306',
     }
 }
